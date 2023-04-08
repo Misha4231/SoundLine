@@ -25,7 +25,8 @@ class PlayListsList(ListView):
 
     def get_queryset(self):
         qs= super().get_queryset()
-        qs = PlayListHearingHistory.objects.filter(user=self.request.user).distinct('playList')[:20]
+        if self.request.user.is_authenticated:
+            qs = PlayListHearingHistory.objects.filter(user=self.request.user).distinct('playList')[:20]
         return qs
 
 class SongList(DetailView):
