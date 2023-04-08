@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sound Line{%endblock%}
+
+{% block content %}
+    <div class="last-playlists">
+        <h2>last playlists you listened to</h2>
+        <ul class="last-playlists-list">
+            {% for playlist in object_list %}
+                <li class="last-playlists-list-item">
+                    <a href="{% url 'playlist_detail' playlist.playList.slug %}" class="last-playlists-list-item-link">
+                        <div class="last-playlists-list-item-container">
+                            <p>{{playlist.playList.title}}</p>
+                            <img src="{{playlist.playList.image.url}}" height="100" width="100" alt="">
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{%endblock%}

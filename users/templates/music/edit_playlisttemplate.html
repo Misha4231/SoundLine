@@ -1,0 +1,23 @@
+<div class="add-top-info">
+    <a id="input-image-button">choose image</a>
+    <div class="right-info-form">
+        <input type="text" placeholder="Title" id="title-input" class="queryInput">
+    </div>
+</div>  
+<div class="search">
+    <div class="search-wrapper">
+            <form action="{% url 'form_search' %}" method="get" id="searchForm" data-url="{% url 'form_search' %}">
+                <input type="text" name="query" id="queryInput" class="queryInput" placeholder="Search songs">
+            </form>
+        <div class="result-lists">
+            <ul id="results-song">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<form action="." method="post" id="create-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" id="form-submit">
+</form>

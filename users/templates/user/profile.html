@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load music_tags %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        <div class="profile-left">
+            <a id="avatar-el"><img src="{{object.avatar.url}}" height="300" width="300" alt=""></a> <br>
+            <input type="text" id="name-input" class="profile-name queryInput" value="{{ object.name }}">
+            {% get_user_playlists as self_playlists %}
+            <p>{{ self_playlists.count }} playlists</p>
+        </div>
+        <div class="profile-right">
+            <textarea maxlength="430" id="profile-description">{{ object.description }}</textarea>
+        </div>
+        
+    </div>
+    <button id="submit-button" onclick="document.querySelector('#profile-submit').click()" class="button profile-button">Save changes</button>
+    <h3>Songs:</h3>
+    {% include 'music/songs_list_each.html' %}
+    {% include 'music/album_list_each.html' %}
+
+        <form action="." id="profile-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" id="profile-submit">
+        </form>
+    
+{% endblock %}
+
+{% block side_script %}
+    <script>
+        var inputImageButton = document.querySelector("#avatar-el");
+        var inputImage = document.querySelector('#id_avatar');
+
+        inputImageButton.addEventListener('click', () => {
+            inputImage.click();
+        });
+
+        inputImage.addEventListener('change', () => {
+        const file = inputImage.files[0];
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            inputImageButton.innerHTML = `<img src="${event.target.result}" height="300" width="300">`;
+            inputImageButton.style.padding = '0px'
+        };
+        reader.readAsDataURL(file);
+        });
+
+        document.querySelector('#name-input').addEventListener('input', () => {
+            document.querySelector('#id_name').value = document.querySelector('#name-input').value
+        })
+
+        document.querySelector('#profile-description').addEventListener('input', () => {
+            document.querySelector('#id_description').value = document.querySelector('#profile-description').value
+        })
+    </script>
+    <script src="{% static 'js/player.js' %}"></script>
+{% endblock %}
+

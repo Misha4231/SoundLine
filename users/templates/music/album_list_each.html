@@ -1,0 +1,16 @@
+<div class="song-list-container">
+    <div class="song-list">
+        <ul class="song-list-ul">
+            {% for album in album_list %}
+                <li class="song-list-ul-item">
+                    <a href="{% url 'album_detail' album.slug %}">
+                        <img src="{{album.image.url}}" class="song-image" height="30" width="30" alt="">
+                        <span>{{ album.title }}</span>
+                    </a>
+                </li>
+            {% empty %}
+                <h3>No any albums yet.</h3>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

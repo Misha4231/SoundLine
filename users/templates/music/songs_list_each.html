@@ -1,0 +1,42 @@
+{% load static %}
+<div class="song-list-container">
+    <div class="song-list">
+        <ul class="song-list-ul">
+            {% for song in object_list %}
+                {% with total_likes=song.users_like.count %}
+                <li class="song-list-ul-item">
+                    <a class="play-button"><img class="icon-1 currimg" src="{% static 'img/play.png' %}" height="20" width="20" alt=""></a>
+                    <div>
+                        <img src="{{song.image.url}}" class="song-image" height="30" width="30" alt="">
+                        <a href="{% url 'song_detail' song.slug %}" class="song-title">{{song.title}}</a>
+                    </div>
+                    <audio name="song" data-link="{% url 'hear' song.slug %}" class="audio-song" controls onplay="plusHearing()">
+                        <source src="{% url 'stream' song.slug %}" type="audio/mp3">
+                        <source src="{% url 'stream' song.slug %}" type="audio/webm"/>
+                    </audio>
+                    <div class="like-info">
+                        <span class="total">{{total_likes}}</span>like{{total_likes|pluralize}}
+                        <a data-url="{% url 'like' song.slug %}" data-transparent="{% static 'img/transparent.png' %}" data-black="{% static 'img/black.png' %}" class="like">{% if request.user not in song.users_like.all %}<img src="{% static 'img/transparent.png' %}" class="like-photo" alt=""> {% else %}<img src="{% static 'img/black.png' %}" class="unlike-photo" alt="">{% endif %}</a>
+                    </div>
+                    {% endwith %}
+                </li>
+            {% empty %}
+                <h3>No any songs yet.</h3>
+            {% endfor %}
+        </ul>
+    </div>
+    
+</div>
+<div class="down-info">
+    <div class="down-info-elements">
+        <span id="lenght-varibe-value"></span>
+        <div class="progress__container">
+            <div class="progress"></div>
+        </div><span id="length-value"></span>
+        <a id="play-prev"><img src="{% static 'img/left-arrow.png' %}" height="20" width="20" alt=""></a>
+        <a class="play-button-down" id="play2"><img class="icon-1" src="{% static 'img/play.png' %}" height="20" width="20" alt=""></a>
+        <a id="play-next"><img src="{% static 'img/right-arrow.png' %}" height="20" width="20" alt=""></a>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.1">
+    </div>
+</div>
+<span id="path" data-play="{% static 'img/play.png' %}" data-pause="{% static 'img/pause.png' %}"></span>

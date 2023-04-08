@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{object.title}}{%endblock%}
+
+{% block content %}
+    <div class="playlist-info">
+        <div class="playlist-info-container">
+            <div class="playlist-info-left">
+                <img src="{{object.image.url}}" height="300px" width="300px" alt="">
+            </div>
+            <div class="playlist-info-right">
+                <h1>{{object.title}}</h1>
+                <p>{{object.song.count}} Songs</p>
+                <p>Author: <a href="{% url 'profile_detail' object.author.user_profiles.id %}">{{ object.author }}</a></p>
+            </div>
+        </div>
+    </div>
+    <hr width="1550px"><br>
+    {% include 'music/songs_list_each.html' %}
+    <span id="history_save_link" data-url="{% url 'history_save' object.slug %}"></span>
+
+{% endblock %}
+
+{% block side_script %}
+    <script src="{% static 'js/player.js' %}"></script>
+{% endblock %}

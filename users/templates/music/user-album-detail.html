@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{object.title}}{% endblock %}
+
+{% block content %}
+    <div class="my-albums">
+        <div class="album-top-info">
+            <img src="{{object.image.url}}" height="200" width="200" alt="">
+            <h2>{{ object.title }}</h2>
+        </div>
+        {% include 'music/songs_list_each.html' %}
+    </div>
+{% endblock %}
+
+{% block side_script %} 
+    <script src="{% static 'js/player.js' %}"></script>
+{% endblock %} 
+

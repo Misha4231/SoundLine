@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+{% load music_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{%endblock%}</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-container">
+                <div class="sidebar_items">
+                    <a href="/">
+                        <img src="{% static 'img/logo.png' %}" height="40" width="40"><br>
+                        <span class="logo-text">SoundLine</span><br>
+                    </a>
+                    <a href="{% url 'search' %}" class="sidebar-link"><img src="{% static 'img/search.png' %}" class="icon">Search</a><br>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'liked_songs' %}" class="sidebar-link">My media library</a><br>
+                        <a href="{% url 'add_playlist' %}" class="sidebar-link"><img src="{% static 'img/add.png' %}" class="icon">Add playlist</a><br>
+                        {% get_user_playlists as playlist %}
+
+                    {% else %}
+                        <a href="{% url 'login' %}" class="login-url">Log in</a>
+                    {% endif %}
+                    <hr>
+                    <ul class="playlist-list">
+                        {% for p in playlist %}
+                            <li class="playlist-item"><a href="{% url 'update_playlist' p.slug %}">{{p.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <div class="current-song-info">
+                        <img id="current-song-image" src="{{ object_list.image.url }}"><p></p>
+                        <a href="" id="current-song-title"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {% if user.is_authenticated %}
+            <div class="header">
+                <div class="profile-window">
+                    {% get_profie as profile %}
+                    <span class="profile-info" onclick="get_profile_window()"><img src="{{profile.avatar.url}}" class="avatar"><span>{{profile.name}}</span>
+                        <ul class="profiel-links-info" style="display: none;">
+                            <li class="profiel-links-info-item"><a href="{% url 'profile' profile.id %}">Profile</a></li>
+                            <li class="profiel-links-info-item"><a href="{% url 'user_albums' %}">My albums</a></li>
+                            <li class="profiel-links-info-item"><a href="{% url 'add_song' %}">Add song</a></li>
+                            <li class="profiel-links-info-item"><a href="{% url 'password_change' %}">Change passowrd</a></li>
+                            <li class="profiel-links-info-item"><a href="{% url 'logout' %}">Log out</a></li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            {% endif %}
+            <div class="block-content">
+                {% block content %}{%endblock%}
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        function get_profile_window(){
+            let list = document.querySelector('.profiel-links-info')
+            if (list.style.display == 'block' ){
+                list.style.display = 'none'
+            } else{
+                list.style.display = 'block'
+            }
+        }
+    </script>
+    
+    {% block side_script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,630 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.wrapper{
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+}
+.sidebar {
+    position: fixed;
+    background-color: #fff;
+    text-align: left;
+    height: 1980px;
+    width: 300px;
+    -webkit-box-shadow: 29px 6px 24px -11px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 29px 6px 24px -11px rgba(66, 68, 90, 1);
+    box-shadow: 29px 6px 24px -11px rgba(66, 68, 90, 1);
+}
+
+.sidebar-container {
+    padding-top: 20px;
+    max-width: 230px;
+    margin: auto;
+}
+.sidebar_items {
+    
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    
+}
+.logo-text {
+    margin-bottom: -7px;
+    display: block;
+}
+.sidebar-link {
+    display: block;
+   margin-top: -6px;
+}
+.login-url{
+    margin-top: -13px;
+    margin-bottom: 7px;
+    display: block;
+}
+.icon {
+    height: 15px;
+    width: 15px;
+}
+.playlist-list {
+    margin-top: 5px;
+    list-style: none;
+}
+.playlist-item {
+    
+}
+.header {
+    max-width: 1500px;
+    margin: auto;
+    text-align: right;
+    right: 40px;
+    position: absolute;
+    margin-bottom: 40px;
+    padding-top: 20px;
+    
+}
+.profile-window {
+    float: right;
+}
+.profile-info {
+    font-size: 17px;
+    font-weight: 500;
+}
+.avatar {
+    margin-right: 8px;
+    height: 20px;
+    width: 20px;
+}
+.profiel-links-info {
+    position: absolute;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 21px 29px -6px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 3px 21px 29px -6px rgba(66, 68, 90, 1);
+    box-shadow: 3px 21px 29px -6px rgba(66, 68, 90, 1);
+    padding: 10px;
+    border-radius: 5px;
+    list-style: none;
+}
+.profiel-links-info-item {
+    margin-bottom: 10px;
+    padding: 4px;
+}
+.profiel-links-info-item:hover {
+    background-color: #2f2f2f;
+}
+.profiel-links-info-item a:hover{
+    color: #fff;
+}
+.content{
+    
+    margin-left: 330px;
+    
+}
+.block-content{
+   margin-top: 30px;
+    
+}
+
+.auth-error {
+    background-color: #d85353;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.auth-from-container{
+    padding: 25px;
+    
+    max-width: 200px;
+    margin: auto;
+    margin-top: 250px;
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 2px 38px 3px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 3px 2px 38px 3px rgba(66, 68, 90, 1);
+    box-shadow: 3px 2px 38px 3px rgba(66, 68, 90, 1);
+}
+.auth_form {
+    
+}
+.auth-form-input {
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.auth-form-input:focus {
+    outline: none;
+}
+.auth_button {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #5cd175;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    transition: 1s ease-in-out 0s all;
+    
+    
+}
+.auth_button:hover{
+    color: #5cd175;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+
+.form-down-links {
+    text-decoration: underline;
+    text-align: center;
+}
+.form-down-link {
+    
+}
+.login-link{
+    text-decoration: underline;
+    padding-top: 10px;
+}
+.auth-form-input-file{
+    margin-bottom: 15px;
+    margin-left: -5px;
+}
+.auth-form-input-textarea{
+    width: 200px;
+}
+
+.song-list-container {
+    text-align: left;
+}
+.song-list {
+}
+.song-list-ul {
+    list-style: none;
+}
+.song-list-ul-item {
+}
+.down-info {
+    width: 100%;
+    left: 300px;
+    
+    -webkit-box-shadow: 2px -4px 24px 0px rgba(66, 68, 90, 1);
+-moz-box-shadow: 2px -4px 24px 0px rgba(66, 68, 90, 1);
+box-shadow: 2px -4px 24px 0px rgba(66, 68, 90, 1);
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+}
+.down-info-elements {
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    justify-content: center;
+}
+.play-button{
+    width: 100px;
+    height: 30px;
+}
+
+.progress__container{
+    background-color: #818181;
+    border-radius: 5px;
+    width: 330px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.progress{
+    background-color: #5cd175;
+    border-radius: 5px;
+    height: 6px;
+    width: 0px;
+}
+.search-wrapper {
+    width: 1580px;
+    
+}
+
+.result-lists {
+    
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 30px;
+}
+#results-song{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+#results-playlist{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.queryInput{
+    width: 160px;
+    height: 30px;
+    border: none;
+    border-bottom: #000 1px solid;
+}
+.queryInput:focus{
+    outline: none;
+}
+.result-item{
+    transition: 0.8s ease-out 0s all;
+    flex-wrap: wrap;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: -1px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -1px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: -1px 8px 24px 0px rgba(66, 68, 90, 1);
+    padding: 20px;
+    border-radius: 10px;
+}
+.result-item img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.result-item p a{
+    
+}
+.result-item:hover{
+    background-color: #c7c7c7;
+}
+
+.song-detail-container {
+   width: 1300px;
+   display: flex;
+   justify-content: center;
+    margin-top: 150px;
+
+}
+.song-info {
+    display: flex;
+}
+.image {
+}
+.info {
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.info-list {
+    list-style: none;
+}
+.info-list-item {
+    margin-bottom: 20px;
+}
+.info-list-item-hearings {
+}
+.song-down-info {
+    display: flex;
+   justify-content: center;
+}
+.download-container {
+    margin-top: 20px;
+}
+.download-button {
+    color: #000;
+    border-radius: 30px;
+    background-color: #b3b3b3;
+    padding: 15px 100px;
+}
+.palyer {
+    display: none;
+}
+.player-audio {
+}
+.down-info {
+    width: 1700px;
+    background-color: #ffffff;
+}
+.down-info-elements {
+
+}
+.progress__container {
+    
+    margin-top: 5px;
+}
+.progress {
+    height: 10px;
+}
+#length-value{
+    margin-right: 70px;
+}
+.play-button-down {
+    padding: 5px 40px;
+    border: none;
+    background-color: #5cd175;
+    color: #fff;
+    border-radius: 30px;
+}
+#volume-slider{
+    margin-left: 50px;
+
+}
+#play-prev{
+    margin-right: 10px;
+    margin-left: 40px;
+}
+#play-next{
+    margin-left: 10px;
+    margin-right: 40px;
+}
+
+.current-song-info{
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    left: 0;
+}
+#current-song-image{
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+#current-song-title{
+    margin-left: 10px;
+    position: fixed;
+    bottom: 20px;
+}
+.audio-song{
+    display: none;
+    
+}
+.like{
+    cursor: pointer;
+}
+.like img{
+    height: 20px;
+    width: 20px;
+}
+.song-list {
+    margin-left: 50px;
+}
+.song-list-ul {
+}
+.song-list-ul-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+.play-button {
+    margin-right: -50px;
+}
+.icon-1 {
+}
+.currimg {
+    margin-top: 5px;
+}
+.song-image {
+}
+.song-title {
+    margin-bottom: 15px;
+}
+.like-info{
+
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.audio-song {
+
+}
+.total {
+}
+.like {
+}
+.like-photo {
+}
+.unlike-photo {
+}
+
+
+.playlist-info {
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+.playlist-info-container {
+    display: flex;
+    max-height: 350px;
+}
+.playlist-info-left {
+    margin-right: 30px;
+}
+.playlist-info-right {
+   margin-top: 80px;
+}
+.playlist-info-right h1{
+    font-size: 70px;
+}
+.last-playlists{
+   margin-top: 50px;
+}
+.last-playlists h2{
+    margin-bottom: 50px;
+}
+.last-playlists-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.last-playlists-list-item {
+    flex-wrap: wrap;
+    margin-right: 20px;
+    margin-bottom: 80px;
+
+}
+.last-playlists-list-item-link {
+    
+    border-radius: 15px;
+    
+}
+.last-playlists-list-item-container{
+    background-color: #2f2f2f;
+    padding: 30px;
+    width: min-content;
+    color: #fff;
+}
+.last-playlists-list-item-container img{
+    margin-top: 10px;
+}
+#input-image-button{
+    padding: 100px;
+    border: 1px dotted #000;
+    margin-right: 40px;
+   
+}
+.add-top-info{
+    display: flex;
+}
+
+#create-form{
+    
+}
+#submit-button{
+    background-color: #5cd175;
+    right: 60px;
+    
+}
+.button{
+    position: fixed;
+    padding: 17px 40px;
+    border: none;
+    bottom: 60px;
+    -webkit-box-shadow: -1px 3px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -1px 3px 24px 0px rgba(66, 68, 90, 1);
+    border-radius: 35px;
+    font-size: 20px;
+    transition: 0.8s ease-in-out 0s all;
+    color: #ffffff;
+    box-shadow: -1px 3px 24px 0px rgba(66, 68, 90, 1);
+}
+#submit-button:hover{
+    background-color: #fff;
+    color: #5cd175;
+}
+.delete-button{
+    background-color: #be3535;
+    right: 300px;
+}
+.delete-button:hover{
+    background-color: #fff;
+    color: #be3535;
+}
+
+.add-top-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.right-info-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-playlist-container{
+    margin-left: 100px;
+}
+.selected-songs {
+
+}
+.selected-songs-list {
+    list-style: none;
+}
+.selected-songs-list-item{
+    background-color: #2f2f2f;
+    padding: 20px 0px;
+    max-width: 400px;
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.center-text{
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+    width: 1400px;
+    align-items: center;
+}
+.del-option{
+    margin-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 28px;
+    padding-bottom: 4px;
+    background-color: #be3535;
+    border-radius: 50%;
+}
+#profile-form{
+    display: none;
+}
+.profile-container {
+    min-height: 50vh;
+    
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 1300px;
+    
+}
+.profile-left {
+    padding: 20px;
+    border: 1px solid #2f2f2f;
+    border-right: none;
+}
+#avatar-el{
+
+}
+#avatar-el img{
+    
+    border-radius: 50%;
+}
+#name-input{
+    margin-top: 10px;
+    background-color: #cfcfcf;
+
+}
+.profile-name {
+}
+.queryInput {
+}
+.profile-right {
+    border: 1px solid #2f2f2f;
+}
+.button {
+}
+.profile-button {
+    bottom: 150px;
+}
+#profile-description{
+    border: none;
+    height: 403px;
+}
+#profile-description:focus {
+    outline: none !important; 
+}
+
+.auth-from-container{
+    width: 1300px;
+    margin-left: 500px;
+}
+.profile-description{
+    max-width: 250px;
+    height: 393px;
+}

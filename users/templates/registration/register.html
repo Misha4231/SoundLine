@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Create an account{%endblock%}
+
+{% block content %}
+    <div class="auth-from-container">
+        {% if form.errors %}
+            <p class="auth-error">Something wrong, maybe password disagree or not all fields are field</p>
+        {% endif %}
+        <form action="{% url 'register' %}" method="post" class="auth_form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username" class="auth-form-input"><br>
+            <input type="password" name="password" placeholder="passowrd" class="auth-form-input"><br>
+            <input type="password" name="password2" placeholder="repeat passowrd" class="auth-form-input"><br>
+            <button class="auth_button">Create an account</button>
+        </form>
+        <div class="form-down-links">
+            <a href="{% url 'login' %}" class="form-down-link">Have an account</a>
+        </div>
+    </div>
+{%endblock%}

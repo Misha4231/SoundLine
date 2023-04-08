@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Upadte {{ object.title }}{% endblock %}
+
+{% block content %}
+    <div class="my-albums">
+        <form action="{% url 'user_album_update' object.slug %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="submit">
+        </form>
+    </div>
+{% endblock %}

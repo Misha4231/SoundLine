@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load music_tags %}
+
+{% block title %}Add song{% endblock %}
+
+
+{% block content %}
+    
+    <div class="add-top-info">
+        <a id="input-image-button">choose image</a>
+        <div class="right-info-form">
+            <input type="text" placeholder="Title" id="title-input" class="queryInput">
+        </div>
+    </div> 
+    <form action="{% url 'user_search' %}" method="get" id="searchForm" data-url="{% url 'user_search' %}">
+        <input type="text" name="query" id="queryInput" class="queryInput" placeholder="Search authors">
+    </form> 
+    <div class="result-lists">
+        <ul id="results-song">
+
+        </ul>
+    </div>
+
+    <div class="selected-songs">
+        <ul class="selected-songs-list">
+
+        </ul>
+    </div>
+    <button id="submit-button" onclick="document.querySelector('#form-submit').click()" class="button">Add song</button>
+
+
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="title" id="id_title" style="display: none;"><br>
+        <select name="authors" style="display: none;" id="id_authors" multiple>
+            {% get_all_users as users %}
+            {% for author in users %}
+                <option value="{{author.id}}" {% if request.user.id == author.id %}selected{% endif %}>{{ author.username }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="album">Choose  album:</label>
+        <select name="album">
+            {% get_self_albums as albums %}
+            {% for album in albums %}
+            <option value="{{album.id}}">{{album.title}}</option>
+            {% endfor %}
+        </select><br>
+        <label for="song_file">Choose song:</label>
+        <input type="file" name="song_file"><br>
+        <input type="file" name="image" id="id_image" style="display: none;"><br>
+        <label for="genre">Choose genre:</label>
+        <select name="genre">
+            {% get_all_genres as genres %}
+            {% for genre in genres %}
+                <option value="{{genre.id}}">{{genre.name}}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Create" id="form-submit" style="display: none;">
+    </form>
+
+    <span id="data" data-name="{{request.user.username}}" data-id="{{request.user.id}}"></span>
+{% endblock %}
+
+
+{% block side_script %}
+    <script src="{% static 'js/our_form.js' %}"></script>
+    <script src="{% static 'js/song_form.js' %}"></script>
+{% endblock %}

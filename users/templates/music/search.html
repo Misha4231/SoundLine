@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Search{%endblock%}
+
+{% block content %}
+    <div class="search-wrapper">
+        <center>
+            <form action="." method="post" id="searchForm" data-url="{% url 'search' %}">
+                {% csrf_token %}
+                <input type="text" name="query" id="queryInput" placeholder="Search">
+            </form>
+        </center>
+        <div class="result-lists">
+            <ul id="results-song">
+
+            </ul>
+            <ul id="results-playlist">
+
+            </ul>
+        </div>
+    </div>
+    {% include 'music/last_playlists.html' %}
+{%endblock%}
+    
+{% block side_script %}
+    <script src="{% static 'js/search.js' %}"></script>
+{% endblock %}

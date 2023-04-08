@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}My Albums{% endblock %}
+
+{% block content %}
+    <div class="my-albums">
+        <ul class="albums-list">
+            {% for album in object_list %}
+                <li class="albums-list-item">
+                    <a href="{% url 'user_album_update' album.slug %}">
+                        <img src="{{ album.image.url }}" height="40" width="40" alt="">
+                        <span>{{ album.title }}</span>
+                    </a>
+                    
+                </li>
+            {% empty %}
+                <li>No any albums yet</li>
+            {% endfor %}
+        </ul>
+        <h3 class="craete-album-link"><a href="{% url 'create_album' %}">Create album</a></h3>
+    </div>
+{% endblock %}

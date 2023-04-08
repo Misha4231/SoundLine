@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load music_tags %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        <div class="profile-left">
+            <a id="avatar-el"><img src="{{object.avatar.url}}" height="300" width="300" alt=""></a> <br>
+            <h3>{{ object.name }}</h3>
+            {% get_user_playlists as self_playlists %}
+            <p>{{ self_playlists.count }} playlists</p>
+        </div>
+        <div class="profile-right">
+            <p class="profile-description">{{ object.description }}</p>
+        </div>
+    </div>
+    <h3>Songs:</h3>
+    {% include 'music/songs_list_each.html' %}
+    {% include 'music/album_list_each.html' %}
+
+{% endblock %}
+
+{% block side_script %} 
+    <script src="{% static 'js/player.js' %}"></script>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,17 @@
+{% load music_tags %}
+<div class="last-playlists">
+    <h2>Last Playlists:</h2>
+    <ul class="last-playlists-list">
+        {% get_last_playlists as playl %}
+        {% for playlist in playl %}
+            <li class="last-playlists-list-item">
+                <a href="{% url 'playlist_detail' playlist.slug %}" class="last-playlists-list-item-link">
+                    <div class="last-playlists-list-item-container">
+                        <p>{{playlist.title}}</p>
+                        <img src="{{playlist.image.url}}" height="100" width="100" alt="">
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

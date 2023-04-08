@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My media library{% endblock %}
+
+{% block content %}
+    <h1>Songs that you liked:</h1>
+    {% include 'music/songs_list_each.html' %}
+{% endblock %}
+
+{% block side_script %}
+    <script src="{% static 'js/player.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Create an profile{%endblock%}
+
+{% block content %}
+    <div class="auth-from-container">
+        <form action="{% url 'profile_create' %}" method="post" class="auth_form" enctype="multipart/form-data">
+            {% csrf_token %}
+           
+            <input type="text" name="name" placeholder="name" class="auth-form-input"><br>
+            <input type="file" name="avatar" placeholder="avatar" class="auth-form-input-file"><br>
+            <textarea type="text" name="description" placeholder="description" class="auth-form-input-textarea"></textarea><br>
+            <button class="auth_button">Create an profile</button>
+        </form>
+    </div>
+{%endblock%}

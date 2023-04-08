@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Add playlist{% endblock %}
+
+{% block content %}
+    <div class="add-playlist-container">
+        <h1>Add playlist</h1>
+        {% include 'music/edit_playlisttemplate.html' %}
+        
+        <div class="selected-songs">
+            <ul class="selected-songs-list">
+
+            </ul>
+        </div>
+        <button id="submit-button" class="button">Create playlist</button>
+    </div>
+{% endblock %}
+
+{% block side_script %}
+    <script src="{% static 'js/our_form.js' %}"></script>
+    <script src="{% static 'js/creation_form.js' %}"></script>
+{% endblock %}

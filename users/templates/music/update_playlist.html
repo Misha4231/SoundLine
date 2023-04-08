@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Update {{ object.title }}{% endblock %}
+
+{% block content %}
+    <div class="add-playlist-container">
+    <h1>Update {{ object.title }}</h1>
+    {% include 'music/edit_playlisttemplate.html' %}
+    <div class="selected-songs">
+        <ul class="selected-songs-list">
+            {% for song in object.song.all %}
+                <li class="selected-songs-list-item" data-id="{{ song.id }}">{{song.title}}<span class="del-option" onclick="minusOption({{ song.id }},'{{song.title}}')">-</span></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+    <button id="submit-button" class="button">Update playlist</button>
+    <a href="{% url 'delete_playlist' object.slug %}"><button class="delete-button button">Delete playlist</button></a>
+{% endblock %}
+
+{% block side_script %}
+    <script>
+        document.querySelector("#input-image-button").innerHTML = `<img src="{{ object.image.url }}" height="300px" width="300px">`
+        document.querySelector("#input-image-button").style.padding = '0px'
+
+        document.querySelector("#title-input").value = "{{object.title}}"
+    </script>
+    <script src="{% static 'js/creation_form.js' %}"></script>
+{% endblock %}
